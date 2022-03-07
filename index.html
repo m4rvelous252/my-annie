@@ -49,12 +49,15 @@
       <canvas id="canvas"></canvas>
     </div>
     <!-- <audio src="./Llunr  the world could end with you Official Lyric Video.mp3" autoplay loop></audio> -->
-    <audio controls="controls" src="Llunr  the world could end with you Official Lyric Video.mp3" loop id="iframeAudio">
+    <audio src="Llunr  the world could end with you Official Lyric Video.mp3" loop id="iframeAudio">
     </audio> 
     <script>
       function playAudio() {
-        var audio = document.getElementById("iframeAudio");
-        audio.play();
+        var r =confirm("Embe có muốn nghe tiếng lòng của anh khum <3 ?");
+        if(r){
+          var audio = document.getElementById("iframeAudio");
+          audio.play();
+        }
       }
       playAudio();
     </script>
