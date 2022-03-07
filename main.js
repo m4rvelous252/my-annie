@@ -415,3 +415,5 @@ function draw(){
 }
 
 draw();
+
+playAudio();
