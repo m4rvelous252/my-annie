@@ -10,10 +10,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       audio{
         position: absolute;
         opacity: 0.1;
+      }
+      .play-btn{
+        position: absolute;
+        color: pink;
+        font-size: 50px;
+        padding: 10px 0 0 10px;
+        display: flex;
+        align-items:  center;
+      }
+      .play-btn p {
+        padding-left: 10px;
+        font-size: 20px;
+        margin: 0;
+      }
+      .play-btn i {
+        cursor: pointer;
       }
     </style>
 </head>
@@ -21,23 +38,22 @@
     
     <div id="drag-container">
         <div id="spin-container">
-          <!-- <img src="./img/Annie.jpg" alt=""> -->
+          <img src="./img/Annie.jpg" alt="">
+          <img src="./img/Goingout.jpg" alt="">
           <img src="./img/Annie_cute.jpg" alt="">
           <img src="./img/AnnieSad.jpg" alt="">
           <img src="./img/Coto.jpg" alt="">
           <img src="./img/IMG_1224.JPEG" alt="">
-          <img src="./img/Goingout.jpg" alt="">
           <img src="./img/Goingout2.jpg" alt="">
           <img src="./img/selfie.jpg" alt="">
           <img src="./img/IMG_0337.JPG" alt="">
           <img src="./img/IMG_0392.JPG" alt="">
+          <img src="./img/IMG_2533.JPEG" alt="">
+          <img src="./img/IMG_3284.JPG" alt="">
+          <img src="./img/IMG_3348.JPG" alt="">
           <img src="./img/IMG_0453.JPG" alt="">
-          <!-- <img src="./img/IMG_1224.JPEG" alt=""> -->
-          <!-- <img src="./img/IMG_2533.JPEG" alt=""> -->
-          <!-- <img src="./img/IMG_3284.JPEG" alt=""> -->
-          <!-- <img src="./img/IMG_3348.JPEG" alt=""> -->
           
-            <p>Tuni &#128151; Annie</p>
+            <p class="heart">Tuni &#128151; Annie</p>
           
         
         </div>
@@ -51,14 +67,28 @@
     <!-- <audio src="./Llunr  the world could end with you Official Lyric Video.mp3" autoplay loop></audio> -->
     <audio src="Llunr  the world could end with you Official Lyric Video.mp3" loop id="iframeAudio">
     </audio> 
+    <div class="play-btn">
+      <i class="fa-solid fa-play"></i>
+      <p id="play-text">⬅ Play me</p>
+    </div>
     <script>
-      function playAudio() {
-        var r =confirm("Embe có muốn nghe tiếng lòng của anh khum <3 ?");
-        if(r == true){
-          var audio = document.getElementById("iframeAudio");
-          audio.play();
+      var playBtn = document.querySelector('.fa-play');
+      playBtn.addEventListener('click', function(){
+        var iframeAudio = document.getElementById('iframeAudio');
+        var playText = document.getElementById('play-text');
+        if(iframeAudio.paused){
+          iframeAudio.play();
+          iframeAudio.muted = false;
+          playBtn.classList.add('fa-pause');
+          playBtn.classList.remove('fa-play');
+          playText.innerText = 'Pause';
+        } else {
+          iframeAudio.pause();
+          playBtn.classList.remove('fa-pause');
+          playBtn.classList.add('fa-play');
+          playText.innerText = '⬅ Play me';
         }
-      }
+      });
     </script>
     <script src="main.js"></script>
 </body>
